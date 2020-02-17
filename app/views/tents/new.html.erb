@@ -1,0 +1,18 @@
+<div class="container">
+  <h1>Add a new tent !</h1>
+
+  <%= simple_form_for @tent do |t| %>
+    <%= t.input :title %>
+    <%= t.input :description %>
+    <%= t.input :capacity %>
+    <%= t.input :comfort_level %>
+    <%= t.input :location %>
+    <%= t.input :price %>
+    <%= t.input :photos, as: :file %>
+    <%= t.input :photos, as: :file %>
+    <%= t.input :photos, as: :file %>
+    <%= t.submit %>
+  <% end %>
+
+  <%= link_to "⬅️", tents_path %>
+</div>
