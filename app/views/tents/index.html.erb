@@ -1,0 +1,20 @@
+  <div >
+    <div class="home-banner">
+      <div class="container">
+        <h1>Rent a tipi !</h1>
+        <p>Rent any kind of tent anywhere near you, from small camping tents to luxury glamping .</p>
+        <a class="btn btn-success" href="#">Book now !</a>
+      </div>
+
+    </div>
+      <div class="container">
+        <% @tents.each do %>
+
+          <div class="card">
+              <%= @tents.title %>
+          </div>
+
+        <% end %>
+
+      </div>
+  </div>
