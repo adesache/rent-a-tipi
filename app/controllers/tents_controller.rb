@@ -28,6 +28,16 @@ class TentsController < ApplicationController
     redirect_to tents_path
   end
 
+  def edit
+    @tent = Tent.find(params[:id])
+  end
+
+  def update
+    @tent.update(tent_params)
+
+    redirect_to tent_path(@tent)
+  end
+
   private
 
   def tent_params
