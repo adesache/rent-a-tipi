@@ -1,7 +1,7 @@
 class TentsController < ApplicationController
 
   def index
-    @tents = Tent.new
+    @tents = Tent.all
   end
 
   def show
