@@ -8,3 +8,17 @@ Rails.application.routes.draw do
   end
   resources :bookings, only: [:show]
 end
+Collapse
+
+
+
+
+
+
+
+
+
+
+
+
+
