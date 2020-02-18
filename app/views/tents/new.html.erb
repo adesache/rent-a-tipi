@@ -5,7 +5,7 @@
     <%= t.input :title %>
     <%= t.input :description %>
     <%= t.input :capacity %>
-    <%= t.input :comfort_level %>
+    <%= t.input :comfort_level, collection: Tent::LEVEL%>
     <%= t.input :location %>
     <%= t.input :price %>
     <%= t.input :photos, as: :file %>
