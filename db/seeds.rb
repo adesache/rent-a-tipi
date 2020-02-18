@@ -5,3 +5,26 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+p 'reset database'
+Booking.destroy_all
+Tent.destroy_all
+User.destroy_all
+
+bob = User.new(email: 'bob.sponge@gmail.com', password: '123456', first_name: 'Bob', last_name: 'Sponge')
+bob.save!
+mickael = User.new(email: 'mickael.jackson@gmail.com', password: '567890', first_name: 'Mickael', last_name: 'Jackson')
+mickael.save!
+
+
+romantic = Tent.new(title: 'Romantic', capacity: 2, comfort_level: 5, description: 'romantic mood', location: 'Ardèche', price: 90, user: bob)
+romantic.save!
+bohemian = Tent.new(title: 'Bohemian', capacity: 10, comfort_level: 3, description: 'after-party', location: 'Sainte Maries de la Mer', price: 40, user: bob)
+bohemian.save!
+rough = Tent.new(title: 'Rough', capacity: 5, comfort_level: 2, description: 'males only', location: 'Pyrenées', price: 20, user: mickael)
+rough.save!
+luxury = Tent.new(title: 'Luxury', capacity: 2, comfort_level: 5, description: 'amazing', location: 'Saint Raphael', price: 100, user: mickael)
+luxury.save!
+
+
+
+
