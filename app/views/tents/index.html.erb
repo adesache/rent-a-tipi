@@ -25,7 +25,7 @@
                 <p><i class="fas fa-info-circle"></i> <%= tent.description.capitalize %></p>
               </div>
               <h2 class="card-trip-pricing"><%= tent.price %>€</h2>
-              <% if tent.photos.attached? %>
+              <% if tent.user.avatar.attached? %>
                 <%= cl_image_tag tent.user.avatar.key, crop: :fill, alt: "avatar user", class:"card-trip-user avatar-bordered"%>
               <% else %>
                 <i class="card-no-avatar far fa-user"></i>
