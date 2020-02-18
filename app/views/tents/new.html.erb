@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container main-container col-8">
   <h1>Add a new tent !</h1>
 
   <%= simple_form_for @tent do |t| %>
@@ -8,11 +8,11 @@
     <%= t.input :comfort_level, collection: Tent::LEVEL%>
     <%= t.input :location %>
     <%= t.input :price %>
-<div class="div" style="display: flex">
-    <%= t.input :photo1, as: :file %>
-    <%= t.input :photo2, as: :file %>
-    <%= t.input :photo3, as: :file %>
-</div>
+  <div class="div" style="display: flex">
+    <%= t.input :photo_one, as: :file %>
+    <%= t.input :photo_two, as: :file %>
+    <%= t.input :photo_three, as: :file %>
+  </div>
     <%= t.submit %>
   <% end %>
 
