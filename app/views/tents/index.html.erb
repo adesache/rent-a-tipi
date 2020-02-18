@@ -1,20 +1,35 @@
-    <div >
-    <div class="home-banner">
-      <div class="container">
-        <h1>Rent a tipi !</h1>
-        <p>Rent any kind of tent anywhere near you, from small camping tents to luxury glamping .</p>
-        <a class="btn btn-success" href="#">Book now !</a>
-      </div>
-
+<div >
+  <div class="home-banner">
+    <div class="container">
+      <h1>Rent a tipi !</h1>
+      <p>Rent any kind of tent anywhere near you, from small camping tents to luxury glamping .</p>
+      <a class="btn btn-success" href="#">Book now !</a>
     </div>
-      <div class="container">
-        <% @tents.each do %>
-
-          <div class="card">
-              <%= @tents.title %>
-          </div>
-
-        <% end %>
-
-      </div>
   </div>
+
+  <div class="container">
+    <div class="cards">
+      <% @tents.each do |tent| %>
+        <div class="card-trip">
+          <%= link_to tent_path(tent), class:"link" do %>
+            <% if tent.photos.attached? %>
+              <%= cl_image_tag tent.photos.key, height: 300, width: 400, crop: :fill, class:"card-category img" %>
+            <% else %>
+              <%= image_tag "https://source.unsplash.com/1600x900/?tent", alt: "alttext", style:"background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2))", class:"card-category img" %>
+            <% end %>
+            <div class="card-trip-infos">
+              <div>
+                <h2><%= tent.title.capitalize %></h2>
+                <p><i class="fas fa-users"></i> <%= tent.capacity %></p>
+                <p><i class="fas fa-map-marker-alt"></i> <%= tent.location.capitalize %></p>
+                <p><i class="fas fa-info-circle"></i> <%= tent.description.capitalize %></p>
+              </div>
+              <h2 class="card-trip-pricing"><%= tent.price %>€</h2>
+              <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
