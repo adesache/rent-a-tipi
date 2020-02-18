@@ -18,8 +18,9 @@ skip_before_action :authenticate_user!, only: [:index, :show]
   end
 
   def create
-  @tent = Tent.new(tent_params)
   authorize @tent
+  @tent = Tent.new(tent_params)
+  @tent.user = current_user
     if @tent.save
       redirect_to tent_path(@tent)
     else
@@ -48,7 +49,7 @@ skip_before_action :authenticate_user!, only: [:index, :show]
   private
 
   def tent_params
-     params.require(:tent).permit(:title, :photos, :comfort_level, :description, :location, :price, :capacity)
+     params.require(:tent).permit(:title, :photos, :comfort_level, :description, :location, :price, :capacity, :user_id)
   end
 
 end
