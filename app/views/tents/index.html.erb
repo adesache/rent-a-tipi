@@ -28,7 +28,7 @@
               <% if tent.user.avatar.attached? %>
                 <%= cl_image_tag tent.user.avatar.key, crop: :fill, alt: "avatar user", class:"card-trip-user avatar-bordered"%>
               <% else %>
-               <i class="card-no-avatar far fa-user"></i> -->
+                <i class="card-no-avatar far fa-user"></i>
               <% end %>
             </div>
           <% end %>
@@ -36,3 +36,4 @@
       <% end %>
     </div>
   </div>
+</div>
