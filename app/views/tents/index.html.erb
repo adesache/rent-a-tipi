@@ -4,7 +4,6 @@
     <div class="container">
       <h1>Rent a tipi !</h1>
       <p>Rent any kind of tent anywhere near you, from small camping tents to luxury glamping .</p>
-      <a class="btn btn-success" href="#">Book now !</a>
     </div>
   </div>
 
@@ -26,7 +25,11 @@
                 <p><i class="fas fa-info-circle"></i> <%= tent.description.capitalize %></p>
               </div>
               <h2 class="card-trip-pricing"><%= tent.price %>€</h2>
-              <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+              <% if tent.user.avatar.attached? %>
+                <%= cl_image_tag tent.user.avatar.key, crop: :fill, alt: "avatar user", class:"card-trip-user avatar-bordered"%>
+              <% else %>
+                <i class="card-no-avatar far fa-user"></i>
+              <% end %>
             </div>
           <% end %>
         </div>
