@@ -18,9 +18,9 @@ skip_before_action :authenticate_user!, only: [:index, :show]
   end
 
   def create
-  authorize @tent
   @tent = Tent.new(tent_params)
   @tent.user = current_user
+  authorize @tent
     if @tent.save
       redirect_to tent_path(@tent)
     else
