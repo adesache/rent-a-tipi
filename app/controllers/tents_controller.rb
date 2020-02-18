@@ -1,19 +1,25 @@
 class TentsController < ApplicationController
 
+skip_before_action :authenticate_user!, only: [:index, :show]
+
   def index
-    @tents = Tent.all
+    @tents = policy_scope(Tent)
+    # @tents = Tent.all || []
   end
 
   def show
+    authorize @tent
     @tent = Tent.find(params[:id])
   end
 
   def new
     @tent = Tent.new
+    authorize @tent
   end
 
   def create
   @tent = Tent.new(tent_params)
+  authorize @tent
     if @tent.save
       redirect_to tent_path(@tent)
     else
@@ -22,6 +28,7 @@ class TentsController < ApplicationController
   end
 
   def destroy
+    authorize @tent
     @tent = Tent.find(params[:id])
     @tent.destroy
 
