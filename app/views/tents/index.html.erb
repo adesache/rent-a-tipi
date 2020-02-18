@@ -8,10 +8,10 @@
 
     </div>
       <div class="container">
-        <% @tents.each do %>
+        <% @tents.each do |tent|%>
 
           <div class="card">
-              <%= @tents.title %>
+              <%= tent.title %>
           </div>
 
         <% end %>
