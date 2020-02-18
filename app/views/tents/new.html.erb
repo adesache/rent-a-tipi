@@ -8,9 +8,11 @@
     <%= t.input :comfort_level, collection: Tent::LEVEL%>
     <%= t.input :location %>
     <%= t.input :price %>
-    <%= t.input :photos, as: :file %>
-    <%= t.input :photos, as: :file %>
-    <%= t.input :photos, as: :file %>
+<div class="div" style="display: flex">
+    <%= t.input :photo1, as: :file %>
+    <%= t.input :photo2, as: :file %>
+    <%= t.input :photo3, as: :file %>
+</div>
     <%= t.submit %>
   <% end %>
 
