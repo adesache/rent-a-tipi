@@ -14,7 +14,7 @@ class TentsController < ApplicationController
 
   def create
   @tent = Tent.new(tent_params)
-  raise
+  @tent.user = current_user
     if @tent.save
       redirect_to tent_path(@tent)
     else
@@ -42,7 +42,7 @@ class TentsController < ApplicationController
   private
 
   def tent_params
-     params.require(:tent).permit(:title, :photos, :comfort_level, :description, :location, :price, :capacity)
+     params.require(:tent).permit(:title, :photos, :comfort_level, :description, :location, :price, :capacity, :user_id)
   end
 
 end
