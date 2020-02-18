@@ -18,6 +18,7 @@ skip_before_action :authenticate_user!, only: [:index, :show]
   end
 
   def create
+  # raise
   @tent = Tent.new(tent_params)
   @tent.user = current_user
   authorize @tent
@@ -49,7 +50,7 @@ skip_before_action :authenticate_user!, only: [:index, :show]
   private
 
   def tent_params
-     params.require(:tent).permit(:title, :photos, :comfort_level, :description, :location, :price, :capacity, :user_id)
+     params.require(:tent).permit(:title, :comfort_level, :description, :location, :price, :capacity, :user_id, photos: [])
   end
 
 end
