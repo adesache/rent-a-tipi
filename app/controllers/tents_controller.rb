@@ -50,7 +50,7 @@ skip_before_action :authenticate_user!, only: [:index, :show]
   private
 
   def tent_params
-     params.require(:tent).permit(:title, :comfort_level, :description, :location, :price, :capacity, :user_id, photos: [])
+     params.require(:tent).permit(:title, :comfort_level, :description, :location, :price, :capacity, :user_id, :photo_one, :photo_two, :photo_three, :avatar)
   end
 
 end
