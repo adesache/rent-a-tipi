@@ -16,13 +16,13 @@ mickael = User.new(email: 'mickael.jackson@gmail.com', password: '567890', first
 mickael.save!
 
 
-romantic = Tent.new(title: 'Romantic', capacity: 2, comfort_level: 5, description: 'romantic mood', location: 'Ardèche', price: 90, user: bob)
+romantic = Tent.new(title: 'Romantic', capacity: 2, comfort_level: 5, description: 'Romantic mood', location: 'Ardèche', price: 90, user: bob)
 romantic.save!
-bohemian = Tent.new(title: 'Bohemian', capacity: 10, comfort_level: 3, description: 'after-party', location: 'Sainte Maries de la Mer', price: 40, user: bob)
+bohemian = Tent.new(title: 'Bohemian', capacity: 10, comfort_level: 3, description: 'After-party', location: 'Les Saintes Maries de la Mer', price: 40, user: bob)
 bohemian.save!
-rough = Tent.new(title: 'Rough', capacity: 5, comfort_level: 2, description: 'males only', location: 'Pyrenées', price: 20, user: mickael)
+rough = Tent.new(title: 'Rough', capacity: 5, comfort_level: 2, description: 'Males only', location: 'Pyrenées', price: 20, user: mickael)
 rough.save!
-luxury = Tent.new(title: 'Luxury', capacity: 2, comfort_level: 5, description: 'amazing', location: 'Saint Raphael', price: 100, user: mickael)
+luxury = Tent.new(title: 'Luxury', capacity: 2, comfort_level: 5, description: 'Amazing', location: 'Saint Raphael', price: 100, user: mickael)
 luxury.save!
 
 
