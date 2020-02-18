@@ -12,8 +12,8 @@
       <% @tents.each do |tent| %>
         <div class="card-trip">
           <%= link_to tent_path(tent), class:"link" do %>
-            <% if tent.photos.attached? %>
-              <%= cl_image_tag tent.photos.key, height: 300, width: 400, crop: :fill, class:"card-category img" %>
+            <% if tent.photo_one.attached? %>
+              <%= cl_image_tag tent.photo_one.key, height: 300, width: 400, crop: :fill, class:"card-category img" %>
             <% else %>
               <%= image_tag "https://source.unsplash.com/1600x900/?tent", alt: "alttext", style:"background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2))", class:"card-category img" %>
             <% end %>
