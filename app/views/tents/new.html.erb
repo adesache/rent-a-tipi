@@ -1,7 +1,7 @@
 <div class="form-background">
   <div class="container main-container col-5 ">
     <h1 style="color: white">Submit a new Listing</h1>
-  <div style="color: white; font-weight: bolder">
+  <div style="color: white; font-weight: bolder;">
       <%= simple_form_for @tent do |t| %>
         <%= t.input :title %>
         <%= t.input :description %>
@@ -16,7 +16,7 @@
       </div>
         <%= t.submit "Submit Listing", class:"btn"%>
       <% end %>
-<br>
+
       <%= link_to "⬅️ Back to List", root_path %>
     </div>
   </div>
