@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resources :tents, only: [] do
     resources :bookings, only: %i[new create]
   end
-  resources :bookings, only: [:show]
+  resources :bookings, only: [:show, :new, :create]
 
   root to: 'tents#index'
 end

@@ -18,6 +18,7 @@ gem 'devise'
 gem 'cloudinary', '~> 1.12.0'
 gem 'pundit'
 gem 'jquery-rails'
+gem 'date_wrapper'
 
 
 

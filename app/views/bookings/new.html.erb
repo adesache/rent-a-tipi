@@ -1,0 +1,6 @@
+<br>
+<br>
+<br>
+<%= simple_form_for @booking do |b|  %>
+<%= b.input :start_date, as: :string, wrapper: :date, input_html: {value: I18n.l(b.object.date)} %>
+<% end %>
