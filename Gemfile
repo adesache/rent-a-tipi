@@ -19,6 +19,7 @@ gem 'cloudinary', '~> 1.12.0'
 gem 'pundit'
 gem 'jquery-rails'
 gem 'geocoder'
+gem 'turbolinks', '~> 5'
 
 
 group :development do
