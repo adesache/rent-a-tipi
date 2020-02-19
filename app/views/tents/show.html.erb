@@ -55,6 +55,7 @@
             </a>
 
        </div>
+     </div>
 
 <!-- DESCRIPTION -->
     <div class="description-container">
@@ -104,16 +105,16 @@
   </div>
 
 <!-- BOOK -->
-  <div class="card-booking col-lg-4" style="width: 100%;">
-    <label for="datepicker">Reservations dates</label>
+  <div class="card-booking col-lg-4">
+    <label for="datepicker">Select the dates of your booking</label>
     <input type="text" class="datepicker" name="datepicker">
         <%= simple_form_for [@tent, @booking] do |b|  %>
         <%= b.input :start_date, as: :string  %>
         <%= b.input :end_date, as: :string%>
         <%= b.input :total_price, as: :hidden %>
-        <p class="price-per-day" data-price="<%= @tent.price %>">Price: <%= @tent.price %></p>
-        <p class="total-price"></p>
-        <%= b.submit id:"submit-dates" %>
+        <p class="price-per-day" data-price="<%= @tent.price %>">Price: <%= @tent.price %> €</p>
+        <p class="total-price"> </p>
+        <%= b.submit id:"submit-dates", class: 'btn' %>
       <% end %>
   </div>
 
