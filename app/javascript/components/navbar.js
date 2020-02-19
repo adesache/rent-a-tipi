@@ -14,6 +14,7 @@ const initUpdateNavbarOnScroll = () => {
       });
 
     } else {
+      console.log('Hello')
     navbar.classList.add('navbar-lewagon-white');
     }
   }

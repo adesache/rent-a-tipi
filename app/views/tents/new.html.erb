@@ -1,20 +1,23 @@
-<div class="container main-container col-8">
-  <h1>Add a new tent !</h1>
-
-  <%= simple_form_for @tent do |t| %>
-    <%= t.input :title %>
-    <%= t.input :description %>
-    <%= t.input :capacity %>
-    <%= t.input :comfort_level, collection: Tent::LEVEL%>
-    <%= t.input :location %>
-    <%= t.input :price %>
-  <div class="div" style="display: flex">
-    <%= t.input :photo_one, as: :file %>
-    <%= t.input :photo_two, as: :file %>
-    <%= t.input :photo_three, as: :file %>
+<div class="form-background">
+  <div class="container main-container col-5 ">
+    <h1 style="color: white">Submit a new Listing</h1>
+  <div style="color: white; font-weight: bolder">
+      <%= simple_form_for @tent do |t| %>
+        <%= t.input :title %>
+        <%= t.input :description %>
+        <%= t.input :capacity%>
+        <%= t.input :comfort_level, collection: Tent::LEVEL%>
+        <%= t.input :location %>
+        <%= t.input :price%>
+      <div class="div" style="display: flex; color: white">
+        <%= t.input :photo_one, as: :file %>
+        <%= t.input :photo_two, as: :file %>
+        <%= t.input :photo_three, as: :file %>
+      </div>
+        <%= t.submit "Submit Listing", class:"btn"%>
+      <% end %>
+<br>
+      <%= link_to "⬅️ Back to List", root_path %>
+    </div>
   </div>
-    <%= t.submit %>
-  <% end %>
-
-  <%= link_to "⬅️", root_path %>
 </div>
