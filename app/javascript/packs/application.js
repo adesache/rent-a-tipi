@@ -13,26 +13,17 @@ import { initUpdateNavbarOnScroll } from '../components/navbar';
 import flatpickr from 'flatpickr';
 import { initMapbox } from '../plugins/init_mapbox';
 import "flatpickr/dist/themes/airbnb.css";
-import '../plugins/flatpickr';
+import { flatPicker } from '../plugins/flatpickr';
+import { separateDates } from '../components/date';
 
-flatPicker();
 
-
-const submitDates = document.querySelector("#submit-dates");
-if (submitDates) {
-  submitDates.addEventListener("click", (event) => {
-    const dates = document.querySelector(".datepicker").value.split(" to ")
-    document.querySelector("#booking_start_date").value = dates[0]
-    document.querySelector("#booking_end_date").value = dates[1]
-
-    document.querySelector(".booking_start_date").submit()
-  })
-}
 
 // mapbox
 
 document.addEventListener('turbolinks:load', () => {
   initUpdateNavbarOnScroll();
   initMapbox();
+  flatPicker();
+  separateDates();
 })
 
