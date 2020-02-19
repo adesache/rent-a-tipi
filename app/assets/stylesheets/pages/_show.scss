@@ -1,7 +1,9 @@
-.card-booking{
+.card-booking {
   height: 100vh;
-  position: sticky;
-  top: 0;
+  width: 100%;
+  position: fixed;
+  top: 90px;
+  right: 20px;
 }
 
 .row-details {
@@ -28,7 +30,7 @@
 }
 
 .map {
-  
+
 }
 
 
@@ -40,4 +42,8 @@
 .card-details {
 	padding: 20px 0px;
 	width: 100%
+}
+
+#submit-dates {
+  width: 310px;
 }
