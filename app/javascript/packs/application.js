@@ -1,8 +1,10 @@
 //= require jquery
 //= require jquery_ujs
+require("turbolinks").start()
 require("@rails/ujs").start()
 require("@rails/activestorage").start()
 require("channels")
+require("turbolinks").start()
 
 import "bootstrap";
 // import {} from "jquery-ujs"
@@ -40,7 +42,11 @@ document.querySelector("#submit-dates").addEventListener("click", (event) => {
   document.querySelector(".booking_start_date").submit()
 })
 
-// document.addEventListener('turbolinks:load', () => {
-  // Call your JS functions here
+// mapbox
+import { initMapbox } from '../plugins/init_mapbox';
+
+
+document.addEventListener('turbolinks:load', () => {
   initUpdateNavbarOnScroll();
-// });
+  initMapbox();
+})

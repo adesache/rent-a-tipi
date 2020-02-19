@@ -1,21 +1,42 @@
-  
-    <div class="banner-show" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1554968756-e41553ee4eb9?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60)">
-      <div class="container" >
-        <h2><%= @tent.title %></h2>
-      </div>
-    </div>
-
-<div class="container main-container row row-details w-100">
+ <div class="container main-container row row-details w-100">
   <div class="details-container col-12 col-lg-8 ">
-    <div class="card-details" style="width: 100%;">
+    <div class="carrousel-container">
+
+      <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+          <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <%= cl_image_tag @tent.photo_one.key, class:"d-block w-100 carousel-img"%>
+          </div>
+          <div class="carousel-item">
+            <%= cl_image_tag @tent.photo_two.key, class:"d-block w-100 carousel-img"%>
+          </div>
+          <div class="carousel-item">
+          <%= cl_image_tag @tent.photo_three.key, class:"d-block w-100 carousel-img"%>
+          </div>
+            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+            </a>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div> 
+    <div class="card-details" >
       <ul class="list-group list-group-flush">
         <li class="list-group-item">
           <strong>Description: </strong>
           <%= @tent.description %>
-        </li>
-        <li class="list-group-item">
-          <strong>User: </strong>
-          <%= @tent.user.first_name %>
+          <i class="fas fa-info-circle"></i>
         </li>
         <li class="list-group-item">
           <strong>Capacity: </strong>
@@ -26,6 +47,7 @@
         <li class="list-group-item">
           <strong>Location: </strong>
           <%= @tent.location %>
+          <i class="fas fa-map-marker-alt"></i>
         </li>
         <li class="list-group-item">
           <strong>Comfort-level: </strong> 
@@ -33,11 +55,11 @@
             <i class="fas fa-campground"></i>
           <% end %>
          </li>
-        <li class="list-group-item"><strong>Price: </strong><%= @tent.price %>€</li>
       </ul>
-    </div>  
-    <div class="map">
-      <%= image_tag 'image.png' %> 
+    </div>
+
+    <div class="map" >
+      <%= image_tag 'image.png', class: "w-100" %> 
     </div>
   </div>
   <div class="card-booking col-12 col-lg-4" style="width: 100%;">
