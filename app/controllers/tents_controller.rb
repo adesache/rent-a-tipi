@@ -10,10 +10,10 @@ skip_before_action :authenticate_user!, only: [:index, :show]
   def show
     @tent = Tent.find(params[:id])
     @markers =
-      {
+      [{
         lat: @tent.latitude,
         lng: @tent.longitude
-      }
+      }]
     authorize @tent
   end
 
