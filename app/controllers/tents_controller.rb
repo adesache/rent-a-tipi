@@ -5,7 +5,28 @@ skip_before_action :authenticate_user!, only: [:index, :show]
   def index
     @tents = policy_scope(Tent)
     # @tents = Tent.all || []
+    if params[:query].present?
+      @tents = Tent.geocoded
+      @tents = @tents.near(params[:query], 10)
+      @markers = @tents.map do |tent|
+        {
+          lat: tent.latitude,
+          lng: tent.longitude,
+          image_url: helpers.asset_url('tent-icon'),
+        }
+      end
+    else
+      @tents = Tent.all
+      @markers = Tent.geocoded.map do |tent|
+        {
+          lat: tent.latitude,
+          lng: tent.longitude,
+          image_url: helpers.asset_url('tent-icon'),
+        }
+      end
+    end
   end
+
 
   def show
     @booking = Booking.new
@@ -13,7 +34,8 @@ skip_before_action :authenticate_user!, only: [:index, :show]
     @markers =
       [{
         lat: @tent.latitude,
-        lng: @tent.longitude
+        lng: @tent.longitude,
+        image_url: helpers.asset_url('tent-icon'),
       }]
     authorize @tent
   end

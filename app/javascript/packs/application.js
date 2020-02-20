@@ -15,15 +15,15 @@ import { initMapbox } from '../plugins/init_mapbox';
 import "flatpickr/dist/themes/airbnb.css";
 import { flatPicker } from '../plugins/flatpickr';
 import { separateDates } from '../components/date';
+// autocomplete
+import {initAutocomplete} from '../plugins/init_autocomplete';
 
-
-
-// mapbox
 
 document.addEventListener('turbolinks:load', () => {
   initUpdateNavbarOnScroll();
   initMapbox();
   flatPicker();
   separateDates();
+  initAutocomplete();
 })
 

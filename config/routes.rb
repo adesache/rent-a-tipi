@@ -8,5 +8,7 @@ Rails.application.routes.draw do
   end
   resources :bookings, only: [:show]
 
+  get '/:id/dashboard', to: "users#dashboard", as: :profile
+
   root to: 'tents#index'
 end
