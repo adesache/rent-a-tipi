@@ -9,7 +9,7 @@
         <%= form_tag tents_path, method: :get do %>
           <%= text_field_tag :query,
             params[:query],
-            class: "form-control",
+            class: "form-control", id:"search_query",
             placeholder: "Where would you like to camp ?"
             %>
         <% end %>
