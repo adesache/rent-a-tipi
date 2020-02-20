@@ -1,0 +1,26 @@
+<div class="container mx-auto">
+
+  <div class="d-flex">
+    <div class="col-sm-3 bg-white">
+      <p>ola</p>
+      <% if @user.avatar.attached? %>
+        <%= cl_image_tag @user.avatar.key, crop: :fill, alt: "avatar user", class:"card-trip-user avatar-bordered"%>
+      <% else %>
+        <i class="far fa-user" id="no-avatar-profil"></i>
+      <% end %>
+    </div>
+
+    <div class="col-sm-9 ml-3 bg-white">
+      <div>
+        <h1>Hello <%= @user.first_name.capitalize %> !</h1>
+        <hr>
+        <h2><%= @bookings.length %> bookings</h2>
+      </div>
+      <div class="cards-books">
+        <% @bookings.order("start_date ASC").each do |booking| %>
+          <%= render "card-trip", booking: booking %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,31 @@
+<div class="card-trip">
+  <% if booking.tent.photo_one.attached? %>
+    <%= cl_image_tag booking.tent.photo_one.key, height: 300, width: 400, crop: :fill, class:"card-category img" %>
+  <% else %>
+    <%= image_tag "https://source.unsplash.com/1600x900/?tent", alt: "alttext", style:"background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2))", class:"card-category img" %>
+  <% end %>
+  <div class="card-trip-infos">
+    <div class="title-card">
+      <h2><%= booking.tent.title.capitalize %></h2>
+      <p class="card-trip-pricing"><%= booking.start_date.strftime("%d/%m/%Y") %> - <%= booking.end_date.strftime("%d/%m") %></p>
+      <p class="card-trip-pricing"><%= booking.total_price %>€</p>
+    </div>
+    <% if booking.tent.user.avatar.attached? %>
+      <%= cl_image_tag booking.tent.user.avatar.key, crop: :fill, alt: "avatar user", class:"card-trip-user avatar-bordered"%>
+    <% else %>
+      <i class="card-no-avatar far fa-user"></i>
+    <% end %>
+    <div>
+      <div>
+        <% if Date.today > booking.end_date %>
+          <p class="book-status">Previous</p>
+        <% elsif booking.start_date <= Date.today && Date.today < booking.end_date%>
+          <p class="book-status">On going</p>
+        <% else %>
+          <p class="book-status">Upcoming</p>
+        <% end %>
+        <%= link_to "Book again !", tent_path(booking.tent), class:"link"%>
+      </div>
+    </div>
+  </div>
+</div>
