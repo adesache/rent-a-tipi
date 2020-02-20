@@ -20,33 +20,48 @@
     </div>
   </div>
 
-  <div class="container" style="padding-bottom: 80px">
-    <div class="cards">
-      <% @tents.each do |tent| %>
-        <div class="card-trip">
-          <%= link_to tent_path(tent), class:"link" do %>
-            <% if tent.photo_one.attached? %>
-              <%= cl_image_tag tent.photo_one.key, height: 300, width: 400, crop: :fill, class:"card-category img" %>
-            <% else %>
-              <%= image_tag "https://source.unsplash.com/1600x900/?tent", alt: "alttext", style:"background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2))", class:"card-category img" %>
-            <% end %>
-            <div class="card-trip-infos">
-              <div>
-                <h2><%= tent.title.capitalize %></h2>
-                <p><i class="fas fa-users"></i> <%= tent.capacity %></p>
-                <p><i class="fas fa-map-marker-alt"></i> <%= tent.location.capitalize %></p>
-                <p><i class="fas fa-info-circle"></i> <%= tent.description.capitalize %></p>
-              </div>
-              <h2 class="card-trip-pricing"><%= tent.price %>€</h2>
-              <% if tent.user.avatar.attached? %>
-                <%= cl_image_tag tent.user.avatar.key, crop: :fill, alt: "avatar user", class:"card-trip-user avatar-bordered"%>
+<!-- CARDS & MAP -->
+  <div class="container-index" style="display: flex; height: calc(100vh - 56px); overflow:hidden">
+    <div class="col-lg-7" style="overflow: scroll;">
+      <div class="cards">
+        <% @tents.each do |tent| %>
+          <div class="card-trip">
+            <%= link_to tent_path(tent), class:"link" do %>
+              <% if tent.photo_one.attached? %>
+                <%= cl_image_tag tent.photo_one.key, height: 300, width: 400, crop: :fill, class:"card-category img" %>
               <% else %>
-                <i class="card-no-avatar far fa-user"></i>
+                <%= image_tag "https://source.unsplash.com/1600x900/?tent", alt: "alttext", style:"background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2))", class:"card-category img" %>
               <% end %>
-            </div>
-          <% end %>
-        </div>
-      <% end %>
+              <div class="card-trip-infos">
+                <div>
+                  <h2><%= tent.title.capitalize %></h2>
+                  <p><i class="fas fa-users"></i> <%= tent.capacity %></p>
+                  <p><i class="fas fa-map-marker-alt"></i> <%= tent.location.capitalize %></p>
+                  <p><i class="fas fa-info-circle"></i> <%= tent.description.capitalize %></p>
+                </div>
+                <h2 class="card-trip-pricing"><%= tent.price %>€</h2>
+                <% if tent.user.avatar.attached? %>
+                  <%= cl_image_tag tent.user.avatar.key, crop: :fill, alt: "avatar user", class:"card-trip-user avatar-bordered"%>
+                <% else %>
+                  <i class="card-no-avatar far fa-user"></i>
+                <% end %>
+              </div>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
     </div>
+    <div class="index-map col-lg-5">
+      <div class="map-container">
+        <div id="map"
+         style="width: 100%;
+         height: 800px;"
+         data-markers="<%= @markers.to_json %>"
+         data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+        </div>
+      </div>
+    </div>
+
   </div>
+
 </div>

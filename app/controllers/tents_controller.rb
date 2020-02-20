@@ -8,10 +8,24 @@ skip_before_action :authenticate_user!, only: [:index, :show]
     if params[:query].present?
       @tents = Tent.geocoded
       @tents = @tents.near(params[:query], 10)
-    else
-      @tents = Tent.all
+      @marker = @tents.each do |tent|
+        [{
+          lat: tent.latitude,
+          lng: tent.longitude,
+          image_url: helpers.asset_url('tent-icon'),
+        }]
+      end
     end
-  end
+      @tents = Tent.all
+    @marker = @tents.each do |tent|
+        [{
+          lat: tent.latitude,
+          lng: tent.longitude,
+          image_url: helpers.asset_url('tent-icon'),
+        }]
+      end
+    end
+
 
   def show
     @booking = Booking.new
