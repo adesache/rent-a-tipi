@@ -23,7 +23,6 @@ gem 'geocoder'
 gem 'turbolinks', '~> 5'
 
 
-
 group :development do
   gem 'web-console', '>= 3.3.0'
 end
