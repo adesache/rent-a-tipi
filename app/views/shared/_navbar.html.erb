@@ -17,7 +17,8 @@
             <i class="card-no-avatar far fa-user dropdown-toggle" data-toggle="dropdown" ></i>
           <% end %>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-            <%= link_to "Publish a tent to rent", new_tent_path, class: "dropdown-item" %>
+            <%= link_to "Profile", booking_path(current_user.id), class: "dropdown-item" %>
+            <%= link_to "Submit a new listing", new_tent_path, class: "dropdown-item" %>
             <%= link_to "Log out", destroy_user_session_path, class: "dropdown-item",  method: :delete %>
           </div>
         </li>

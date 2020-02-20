@@ -1,6 +1,6 @@
 .cards {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
   grid-gap: 16px;
 }
 
@@ -8,7 +8,8 @@
   overflow: hidden;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  margin: 16px 0px;
+  margin-top: 16px;
+  // width: 375px;
 }
 
 .card-trip .img {
@@ -36,6 +37,7 @@
   justify-content: space-between;
   align-items: flex-end;
   position: relative;
+  color: black;
 }
 
 .card-trip-infos .card-trip-user {
