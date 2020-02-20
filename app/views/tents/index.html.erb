@@ -4,7 +4,7 @@
       <h1>Rent a tipi !</h1>
       <p>Rent any kind of tent anywhere near you, from small camping tents to luxury glamping .</p>
     </div>
-    <div class="container" style="display: flex;">
+    <div class="container">
       <div class="search-bar">
         <%= form_tag root_path, method: :get do %>
           <%= text_field_tag :query,
@@ -12,9 +12,9 @@
             class: "form-control", id:"search_query",
             placeholder: "Where would you like to camp ?"
             %>
-          <div class="search-btn">
+        <div class="search-btn">
             <%= submit_tag "Let's go !", class: "btn" %>
-          </div>
+        </div>
         <% end %>
       </div>
     </div>
