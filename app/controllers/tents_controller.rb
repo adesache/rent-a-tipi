@@ -5,6 +5,12 @@ skip_before_action :authenticate_user!, only: [:index, :show]
   def index
     @tents = policy_scope(Tent)
     # @tents = Tent.all || []
+    if params[:query].present?
+      @tents = Tent.geocoded
+      @tents = @tents.near(params[:query], 10)
+    else
+      @tents = Tent.all
+    end
   end
 
   def show
@@ -13,7 +19,8 @@ skip_before_action :authenticate_user!, only: [:index, :show]
     @markers =
       [{
         lat: @tent.latitude,
-        lng: @tent.longitude
+        lng: @tent.longitude,
+        image_url: helpers.asset_url('tent-icon'),
       }]
     authorize @tent
   end
