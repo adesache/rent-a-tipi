@@ -12,7 +12,8 @@ class BookingsController < ApplicationController
     @booking.tent = @tent
     authorize @booking
     if @booking.save
-      redirect_to tent_path(@tent)
+      flash[:alert] = "Booked !"
+      redirect_to root_path
     else
       render :new
     end
