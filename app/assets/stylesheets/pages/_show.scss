@@ -29,10 +29,25 @@
   padding-top: 70px;
 }
 
-.map {
-
+.title-container {
+  padding-top: 20px;
 }
 
+.carrousel-container {
+  display: flex;
+}
+
+.comfort-level p {
+  font-size: 13px;
+}
+
+.comfort-level .fa-campground {
+ font-size: 12px;
+}
+
+#level-missing {
+  opacity: 50%;
+}
 
 .carousel-img {
 	height: 300px;
@@ -46,4 +61,29 @@
 
 #submit-dates {
   width: 310px;
+}
+
+.description-container i {
+  opacity: 0.5;
+}
+
+.description-container p {
+  opacity: 0.7;
+}
+
+.card-booking .fa-bolt {
+ font-size: 13px;
+ color: $green;
+}
+
+.card-booking p {
+  font-size: 13px;
+  opacity: 0.7;
+  margin-bottom: 4px;
+}
+
+.total-price {
+  font-size: 1rem !important;
+  opacity: 0.9 !important;
+  margin-bottom: 10px !important;
 }

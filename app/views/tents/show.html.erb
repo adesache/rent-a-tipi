@@ -6,6 +6,17 @@
       <h1> <%= @tent.title %></h1>
     </div>
 
+    <div class="comfort-level d-flex justify-content-between">
+      <p>
+        Comfort <% @tent.comfort_level.times do %>
+          <i class="fas fa-campground"></i>
+        <% end %>
+        <% (5 - @tent.comfort_level).times do %>
+          <i class="fas fa-campground" id="level-missing"></i>
+        <% end %>
+      </p>
+    </div>
+
     <div class="carrousel-container">
 
       <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
@@ -53,38 +64,44 @@
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="sr-only">Next</span>
             </a>
-
        </div>
+
+
      </div>
 
 <!-- DESCRIPTION -->
     <div class="description-container">
-      <div class="card-details" >
+      <div class="card-details d-flex bd-highlight" >
 
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item">
-            <strong>Description: </strong>
-            <%= @tent.description %>
-            <i class="fas fa-info-circle"></i>
-          </li>
-          <li class="list-group-item">
-            <strong>Capacity: </strong>
-            <% @tent.capacity.times do %>
-              <i class="fas fa-male"></i>
-            <% end %>
-          </li>
-          <li class="list-group-item">
-            <strong>Location: </strong>
-            <%= @tent.location %>
-            <i class="fas fa-map-marker-alt"></i>
-          </li>
-          <li class="list-group-item">
-            <strong>Comfort-level: </strong>
-            <% @tent.comfort_level.times do %>
-              <i class="fas fa-campground"></i>
-            <% end %>
-           </li>
-        </ul>
+
+        <div class="bd-highlight">
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+              <i class="fas fa-info-circle"></i>
+            </li>
+              <li class="list-group-item">
+                <i class="fas fa-users"></i>
+              </li>
+            <li class="list-group-item">
+              <i class="fas fa-map-marker-alt"></i>
+            </li>
+          </ul>
+        </div>
+
+        <div class="flex-grow-1 bd-highlight">
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+              <%= @tent.description %>
+            </li>
+            <li class="list-group-item">
+              <%= @tent.capacity %> people
+            </li>
+            <li class="list-group-item">
+              <%= @tent.location %>
+            </li>
+          </ul>
+        </div>
+
       </div>
 
     </div>
@@ -106,19 +123,20 @@
 
 <!-- BOOK -->
   <div class="card-booking col-lg-4">
-    <label for="datepicker">Select the dates of your booking</label>
+    <h4>Pick dates</h4>
+    <p> <i class="fas fa-bolt"></i>  Instant booking available</p>
+    <label for="datepicker">Indicate the duration of your booking</label>
     <input type="text" class="datepicker" name="datepicker">
         <%= simple_form_for [@tent, @booking] do |b|  %>
         <%= b.input :start_date, as: :string  %>
         <%= b.input :end_date, as: :string%>
-        <%= b.input :total_price, as: :hidden %>
-        <p class="price-per-day" data-price="<%= @tent.price %>">Price: <%= @tent.price %> €</p>
+        <%= b.input :total_price, as: :hidden%>
+        <p class="price-per-day" data-price="<%= @tent.price %>"><%= @tent.price %> € per day</p>
         <p class="total-price"> </p>
-        <%= b.submit id:"submit-dates", class: 'btn' %>
+        <%= b.submit id:"submit-dates", value: 'Book now', class: 'btn' %>
       <% end %>
   </div>
 
 
 </div>
-
 
