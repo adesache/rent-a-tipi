@@ -12,7 +12,7 @@ skip_before_action :authenticate_user!, only: [:index, :show]
         {
           lat: tent.latitude,
           lng: tent.longitude,
-          image_url: helpers.asset_url('tent-icon'),
+          image_url: helpers.asset_url('tent-icon.png'),
         }
       end
     else
@@ -21,7 +21,7 @@ skip_before_action :authenticate_user!, only: [:index, :show]
         {
           lat: tent.latitude,
           lng: tent.longitude,
-          image_url: helpers.asset_url('tent-icon'),
+          image_url: helpers.asset_url('tent-icon.png'),
         }
       end
     end
@@ -35,7 +35,7 @@ skip_before_action :authenticate_user!, only: [:index, :show]
       [{
         lat: @tent.latitude,
         lng: @tent.longitude,
-        image_url: helpers.asset_url('tent-icon'),
+        image_url: helpers.asset_url('tent-icon.png'),
       }]
     authorize @tent
   end
