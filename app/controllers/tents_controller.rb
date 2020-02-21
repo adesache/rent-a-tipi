@@ -9,7 +9,7 @@ skip_before_action :authenticate_user!, only: [:index, :show]
     if params[:query].present?
       @scroll = true
       @tents = Tent.geocoded
-      @tents = @tents.near(params[:query], 10)
+      @tents = @tents.near(params[:query], 30)
       @markers = @tents.map do |tent|
         {
           lat: tent.latitude,
