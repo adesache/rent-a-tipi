@@ -21,6 +21,7 @@ gem 'jquery-rails'
 gem 'flatpickr'
 gem 'geocoder'
 gem 'turbolinks', '~> 5'
+gem 'turbolinks_render'
 
 
 group :development do

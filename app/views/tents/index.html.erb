@@ -1,29 +1,29 @@
 <div >
   <div class="home-banner">
-    <div class="container">
+    <div class="container pt-3">
       <h1>Rent a tipi !</h1>
       <p>
         <span id="banner-typed-text"></span>
       </p>
     </div>
-    <div class="container">
-      <div class="search-bar">
-        <%= form_tag root_path, method: :get do %>
-          <%= text_field_tag :query,
-            params[:query],
-            class: "form-control", id:"search_query",
-            placeholder: "Where would you like to camp ?"
-            %>
-        <div class="search-btn">
-            <%= submit_tag "Let's go !", class: "btn" %>
-        </div>
-        <% end %>
-      </div>
+    <div class="container pt-3">
+          <%= form_tag root_path, remote: true, method: :get do %>
+            <div class="search-bar d-flex justify-content-start align-items-center">
+                <%= text_field_tag :query,
+                  params[:query],
+                  class: "form-control flex-grow py-0", id:"search_query",
+                  placeholder: "Where would you like to camp ?"
+                  %>
+              <div class="search-btn">
+                  <%= submit_tag "Let's go !", class: "btn ml-2 btn-search" %>
+              </div>
+            </div>
+          <% end %>
     </div>
   </div>
 
 <!-- CARDS & MAP -->
-  <div class="container-index" style="display: flex; height: calc(100vh - 56px); overflow:hidden">
+  <div class="container-index" id="tent-list" style="display: flex; height: calc(100vh - 56px); overflow:hidden">
     <div class="col-lg-7" style="overflow: scroll;">
       <div class="cards">
         <% @tents.each do |tent| %>

@@ -18,14 +18,17 @@ import { flatPicker } from '../plugins/flatpickr';
 import { separateDates } from '../components/date';
 // autocomplete
 import {initAutocomplete} from '../plugins/init_autocomplete';
+import {resultsPage} from '../components/results_page';
 
 
 document.addEventListener('turbolinks:load', () => {
+  initAutocomplete();
   initUpdateNavbarOnScroll();
   initMapbox();
   flatPicker();
   separateDates();
   initAutocomplete();
   loadDynamicBannerText();
+  resultsPage();
 })
 
