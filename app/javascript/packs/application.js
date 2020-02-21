@@ -10,6 +10,7 @@ import "bootstrap";
 // import {} from "jquery-ujs"
 import { initUpdateNavbarOnScroll } from '../components/navbar';
 //= require date_wrapper
+import { loadDynamicBannerText } from '../components/banner';
 import flatpickr from 'flatpickr';
 import { initMapbox } from '../plugins/init_mapbox';
 import "flatpickr/dist/themes/airbnb.css";
@@ -26,6 +27,8 @@ document.addEventListener('turbolinks:load', () => {
   initMapbox();
   flatPicker();
   separateDates();
+  initAutocomplete();
+  loadDynamicBannerText();
   resultsPage();
 })
 
