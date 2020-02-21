@@ -23,7 +23,6 @@ import {resultsPage} from '../components/results_page';
 
 document.addEventListener('turbolinks:load', () => {
   initAutocomplete();
-  initUpdateNavbarOnScroll();
   initMapbox();
   flatPicker();
   separateDates();
@@ -34,7 +33,10 @@ document.addEventListener('turbolinks:load', () => {
   if (ctnIndex) {
     if (ctnIndex.dataset.scroll === "true") {
       setTimeout(function(){ ctnIndex.scrollIntoView({behavior: "smooth"}); }, 500);
+    } else {
+      window.scrollY = 0
     }
   }
+  initUpdateNavbarOnScroll();
 })
 

@@ -24,9 +24,9 @@
 
 <!-- CARDS & MAP -->
   <div class="container-index" id="tent-list" data-scroll="<%= @scroll %>" style="display: flex; height: calc(100vh - 56px); overflow:hidden">
-    <div class="col-lg-7" style="overflow: scroll;">
-<!--       <h5 style="text-align: center; color: grey; padding-top:15px;">All our amazing tents</h5>
- -->      <div class="cards">
+    <div class="col-lg-7 tent-cards" style="overflow: scroll;">
+      <h5 style="text-align: center; color: grey; padding-top:15px;">All our amazing tents</h5>
+      <div class="cards">
         <% @tents.each do |tent| %>
           <div class="card-trip">
             <%= link_to tent_path(tent), class:"link" do %>
