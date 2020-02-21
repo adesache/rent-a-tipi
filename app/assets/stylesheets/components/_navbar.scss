@@ -4,8 +4,27 @@
   transition: 0.5s background-color ease;
 }
 
+.navbar-lewagon .nav-link {
+  color: white !important;
+  opacity: 0.8 !important;
+  margin-right: 8px;
+}
+
+.navbar-lewagon .fa-campground {
+  color: white;
+  opacity: 0.9;
+}
+
 .navbar-lewagon-white {
   background-color: white;
+  .nav-link {
+    color: rgba(0, 0, 0, 0.5) !important;
+  }
+}
+
+.navbar-lewagon-white .fa-campground {
+  color: black;
+  opacity: 0.9;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -19,4 +38,10 @@
 #navbarDropdown:hover {
   cursor: pointer;
   opacity: 0.7;
+}
+
+.nav-link.active-link {
+  color: rgba(0, 0, 0, 0.8) !important;
+  font-weight: bolder;
+  margin-right: 8px;
 }
