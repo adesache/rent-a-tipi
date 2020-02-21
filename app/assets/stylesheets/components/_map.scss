@@ -8,3 +8,25 @@
   height: 100vh;
 }
 
+.mapboxgl-popup {
+  // max-width: 400px;
+  // border-radius: 20px;
+  // border: grey;
+  // box-shadow: 1px 1px 45px -8px rgba(102,101,102,1);
+  // background-color: rgba(220,220,220,0.8);
+}
+
+.mapboxgl-popup-content {
+  text-align: center;
+  font-family: 'Helvetica', sans-serif;
+  font-size: 16px;
+  font-weight: bolder;
+  color: #3B4245;
+  width: 300px;
+}
+
+#info-title {
+  border-bottom: 1px solid lightgrey;
+  margin-bottom: 8px;
+  color: black;
+}
