@@ -38,6 +38,7 @@ skip_before_action :authenticate_user!, only: [:index, :show]
         lat: @tent.latitude,
         lng: @tent.longitude,
         image_url: helpers.asset_url('tent-icon.png'),
+        infoWindow: render_to_string(partial: "small_info_window", locals: { tent: @tent })
       }]
     authorize @tent
   end
