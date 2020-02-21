@@ -33,9 +33,8 @@ const addMarkersToMap = (map, markers) => {
 
 const initMapbox = () => {
   const mapElement = document.getElementById('map');
-  const markers = JSON.parse(mapElement.dataset.markers);
-  if (markers) {
   if (mapElement) {
+  const markers = JSON.parse(mapElement.dataset.markers);
     mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
     const map = new mapboxgl.Map({
       container: 'map',
@@ -43,7 +42,6 @@ const initMapbox = () => {
     });
     addMarkersToMap (map, markers);
     fitMapToMarkers (map, markers);
-    };
   };
 };
 
