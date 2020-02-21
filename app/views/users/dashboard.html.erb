@@ -1,37 +1,37 @@
-<div class="container mx-auto">
-
-  <div class="row">
-    <div class="col-md-3 col-sm-12">
-      <div class="bg-white border mr-1 p-3">
-        <div class="top-avatar">
-          <% if @user.avatar.attached? %>
-            <%= cl_image_tag @user.avatar.key, crop: :fill, alt: "avatar user", class:"avatar-huge"%>
-          <% else %>
-            <i class="far fa-user" id="no-avatar-profil"></i>
-          <% end %>
-          <p> <%= link_to "Edit profil", profile_path(:id) %> </p>
-          <hr>
-        </div>
-        <div class="info-profil">
-          <p><i class="fas fa-trophy"></i> Super camper</p>
-          <p><i class="fas fa-check-square"></i> Contact verified</p>
-          <p><i class="fas fa-check-square"></i> Email</p>
+<div class="background-dashboard">
+  <div class="container mx-auto">
+    <div class="row">
+      <div class="col-md-3 col-sm-12">
+        <div class="bg-white border mr-1 p-3">
+          <div class="top-avatar">
+            <% if @user.avatar.attached? %>
+              <%= cl_image_tag @user.avatar.key, crop: :fill, alt: "avatar user", class:"avatar-huge"%>
+            <% else %>
+              <i class="far fa-user" id="no-avatar-profil"></i>
+            <% end %>
+            <p> <%= link_to "Edit profil", profile_path(:id) %> </p>
+            <hr>
+          </div>
+          <div class="info-profil">
+            <p><i class="fas fa-trophy"></i> Super camper</p>
+            <p><i class="fas fa-check-square"></i> Contact verified</p>
+            <p><i class="fas fa-check-square"></i> Email</p>
+          </div>
         </div>
       </div>
-    </div>
 
-
-    <div class="col-sm-12 col-md-9">
-      <div class="bg-white border p-3 min-vh-100">
-        <div class="align">
-          <h1>Hello <%= @user.first_name.capitalize %> !</h1>
-          <hr>
-          <h2>Your <%= pluralize @bookings.size, "booking" %></h2>
-        </div>
-        <div class="cards-books">
-          <% @bookings.order("start_date ASC").each do |booking| %>
-            <%= render "card-trip", booking: booking %>
-          <% end %>
+      <div class="col-sm-12 col-md-9">
+        <div class="bg-white border p-3 min-vh-100">
+          <div class="align">
+            <h1>Hello <%= @user.first_name.capitalize %> !</h1>
+            <hr>
+            <h2>Your <%= pluralize @bookings.size, "booking" %></h2>
+          </div>
+          <div class="cards-books">
+            <% @bookings.order("start_date ASC").each do |booking| %>
+              <%= render "card-trip", booking: booking %>
+            <% end %>
+          </div>
         </div>
       </div>
     </div>
