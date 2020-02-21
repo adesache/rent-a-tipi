@@ -4,18 +4,18 @@ const initUpdateNavbarOnScroll = () => {
   if (navbar) {
 
     if (document.querySelector(".home-banner")) {
-      let scrollTarget = document.querySelector(".home-banner").offsetHeight - 56
-      console.log(scrollTarget)
-      window.addEventListener("scroll", () => {
-        console.log(window.scrollY)
-        if (window.scrollY >= scrollTarget ) {
-          console.log("overflow scroll")
-          document.querySelector(".tent-cards").style.overflow = "scroll"
-        } else if (window.scrollY <= scrollTarget ) {
-          console.log("overflow scroll")
-          document.querySelector(".tent-cards").style.overflow = "unset"
-        }
-      })
+      // const scrollTarget = document.querySelector(".home-banner").offsetHeight - 56
+      // console.log(scrollTarget)
+      // window.addEventListener("scroll", () => {
+      //   console.log(window.scrollY)
+      //   if (window.scrollY >= scrollTarget ) {
+      //     console.log("overflow scroll")
+      //     document.querySelector(".tent-cards").style.overflow = "scroll"
+      //   } else if (window.scrollY <= scrollTarget ) {
+      //     console.log("overflow scroll")
+      //     document.querySelector(".tent-cards").style.overflow = "unset"
+      //   }
+      // })
 
       // window.addEventListener('scroll', () => {
 
