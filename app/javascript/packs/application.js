@@ -27,5 +27,11 @@ document.addEventListener('turbolinks:load', () => {
   flatPicker();
   separateDates();
   resultsPage();
+  const ctnIndex = document.querySelector(".container-index")
+  if (ctnIndex) {
+    if (ctnIndex.dataset.scroll === "true") {
+      setTimeout(function(){ ctnIndex.scrollIntoView({behavior: "smooth"}); }, 500);
+    }
+  }
 })
 

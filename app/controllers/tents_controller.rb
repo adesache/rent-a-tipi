@@ -4,8 +4,10 @@ skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
     @tents = policy_scope(Tent)
+    @scroll = false
     # @tents = Tent.all || []
     if params[:query].present?
+      @scroll = true
       @tents = Tent.geocoded
       @tents = @tents.near(params[:query], 10)
       @markers = @tents.map do |tent|
