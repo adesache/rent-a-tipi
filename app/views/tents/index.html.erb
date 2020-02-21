@@ -7,7 +7,7 @@
       </p>
     </div>
     <div class="container pt-3">
-          <%= form_tag root_path, remote: true, method: :get do %>
+          <%= form_tag root_path, method: :get do %>
             <div class="search-bar d-flex justify-content-start align-items-center">
                 <%= text_field_tag :query,
                   params[:query],
@@ -23,7 +23,7 @@
   </div>
 
 <!-- CARDS & MAP -->
-  <div class="container-index" id="tent-list" style="display: flex; height: calc(100vh - 56px); overflow:hidden">
+  <div class="container-index" id="tent-list" data-scroll="<%= @scroll %>" style="display: flex; height: calc(100vh - 56px); overflow:hidden">
     <div class="col-lg-7" style="overflow: scroll;">
       <div class="cards">
         <% @tents.each do |tent| %>
