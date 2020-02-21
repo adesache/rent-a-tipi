@@ -6,7 +6,7 @@ const initUpdateNavbarOnScroll = () => {
     if (window.location == "http://localhost:3000/" || window.location == "https://rent-a-tipi.herokuapp.com/") {
       window.addEventListener('scroll', () => {
 
-        if (window.scrollY >= 290 ) {
+        if (window.scrollY >= window.innerHeight ) {
           navbar.classList.add('navbar-lewagon-white');
         } else {
           navbar.classList.remove('navbar-lewagon-white');
