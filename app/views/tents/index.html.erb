@@ -23,7 +23,7 @@
   </div>
 
 <!-- CARDS & MAP -->
-  <div class="container-index" id="tent-list" style="display: flex; height: calc(100vh - 56px); overflow:hidden">
+  <div class="container-index" id="tent-list" data-scroll="<%= @scroll %>" style="display: flex; height: calc(100vh - 56px); overflow:hidden">
     <div class="col-lg-7" style="overflow: scroll;">
       <div class="cards">
         <% @tents.each do |tent| %>
