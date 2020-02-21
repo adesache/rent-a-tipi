@@ -1,14 +1,14 @@
 <div >
   <div class="home-banner">
     <div class="container pt-3">
-      <h1>Rent a tipi !</h1>
+      <h1>Rent a tipi</h1>
       <p>
         <span id="banner-typed-text"></span>
       </p>
     </div>
-    <div class="container pt-3">
+    <div class="container pt-3" style="width: 800px">
           <%= form_tag root_path, method: :get do %>
-            <div class="search-bar d-flex justify-content-start align-items-center">
+            <div class="search-bar d-flex justify-content-center align-items-center">
                 <%= text_field_tag :query,
                   params[:query],
                   class: "form-control flex-grow py-0", id:"search_query",
@@ -24,7 +24,8 @@
 
 <!-- CARDS & MAP -->
   <div class="container-index" id="tent-list" data-scroll="<%= @scroll %>" style="display: flex; height: calc(100vh - 56px); overflow:hidden">
-    <div class="col-lg-7 tent-cards">
+    <div class="col-lg-7 tent-cards" style="overflow: scroll;">
+      <h5 style="text-align: center; color: grey; padding-top:15px;">All our amazing tents</h5>
       <div class="cards">
         <% @tents.each do |tent| %>
           <div class="card-trip">
