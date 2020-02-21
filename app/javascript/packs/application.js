@@ -27,7 +27,10 @@ document.addEventListener('turbolinks:load', () => {
   flatPicker();
   separateDates();
   initAutocomplete();
-  loadDynamicBannerText();
+  if (document.querySelector("#banner-typed-text")) {
+    loadDynamicBannerText();
+  }
+
   resultsPage();
   const ctnIndex = document.querySelector(".container-index")
   if (ctnIndex) {
@@ -36,7 +39,7 @@ document.addEventListener('turbolinks:load', () => {
     } else {
       window.scrollY = 0
     }
-  }
+  };
   initUpdateNavbarOnScroll();
 })
 
