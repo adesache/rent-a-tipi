@@ -9,7 +9,6 @@
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   margin-top: 16px;
-  // width: 375px;
 }
 
 .card-trip .img {
@@ -82,3 +81,25 @@
   flex-wrap: wrap;
   justify-content: space-around;
 }
+
+#card-size {
+  width: 375px;
+}
+
+.info-profil .fa-trophy {
+  color :$yellow;
+}
+
+.info-profil .fa-check-square {
+  color: $green;
+}
+
+.align h2 {
+  padding-left: 10px;
+}
+
+.align h1 {
+  margin-top: 20px;
+  font-weight:lighter;
+}
+
